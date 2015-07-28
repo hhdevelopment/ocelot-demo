@@ -1,17 +1,21 @@
-FROM java:openjdk-8-jdk
+FROM hhfrancois/ocelot_demo:base
 
 MAINTAINER Francois Achache <francois.achache@gmail.com>
 
-ENV MAVEN_VERSION 3.3.3
-ENV OCELOT_VERSION 2.0.1
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
+ENV GLASSFISH_HOME /usr/local/glassfish4
+ENV PATH $PATH:$JAVA_HOME/bin:$GLASSFISH_HOME/bin
 
-RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
-  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
-  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn \
-  && curl --silent --location --retry 3 https://github.com/hhdevelopment/ocelot/archive/master.tar.gz | tar xz -C /tmp \
-  && cd /tmp/ocelot-master/ocelot-test && mvn package && cp /tmp/ocelot-master/ocelot-test/target/ocelot*.war /tmp/ocelot-test.war \
-  && rm -rf /tmp/ocelot-master && rm -f /usr/bin/mvn && rm -rf /usr/share/maven
+RUN apt-get update && apt-get install -y curl unzip zip inotify-tools && rm -rf /var/lib/apt/lists/* \
+  && curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip \
+  && unzip /tmp/glassfish-4.1.zip -d /usr/local \
+  && rm -f /tmp/glassfish-4.1.zip \
+  && asadmin start-domain domain1 \
+  && asadmin deploy /tmp/ocelot-test.war \
+  && asadmin stop-domain domain1
+  
+EXPOSE 8080 4848 8181
 
-#  && cd /tmp/ocelot-master && mvn install -Dgpg.skip=true -DskipTests=true \
+WORKDIR /usr/local/glassfish4
 
-WORKDIR /tmp
+CMD asadmin start-domain domain1 --verbose

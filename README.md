@@ -1,1 +1,1 @@
-# ocelot-demo-base
+# ocelot-demo-glassfish

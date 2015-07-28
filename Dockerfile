@@ -18,4 +18,4 @@ EXPOSE 8080 4848 8181
 
 WORKDIR /usr/local/glassfish4
 
-CMD asadmin start-domain domain1 --verbose
+CMD asadmin start-domain --verbose domain1

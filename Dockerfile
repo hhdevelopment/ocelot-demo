@@ -1,4 +1,4 @@
-FROM hhfrancois/ocelot_demo:base
+FROM hhfrancois/ocelot-demo:base
 
 MAINTAINER Francois Achache <francois.achache@gmail.com>
 

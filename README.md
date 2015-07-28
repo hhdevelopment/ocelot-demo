@@ -1,1 +1,1 @@
-# ocelot-demo-glassfish
+# ocelot-demo-wildfly 9

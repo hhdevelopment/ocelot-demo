@@ -3,7 +3,7 @@ FROM java:openjdk-8-jdk
 MAINTAINER Francois Achache <francois.achache@gmail.com>
 
 ENV MAVEN_VERSION 3.3.3
-ENV OCELOT_VERSION 2.0.1
+ENV DEMO_VERSION 2.0.0-SNAPSHOT
 
 RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
   && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \

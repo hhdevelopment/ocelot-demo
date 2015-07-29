@@ -19,4 +19,5 @@ EXPOSE 8080 4848 8181
 
 WORKDIR /usr/local/glassfish4
 
+// verbose mode for foreground mode
 CMD asadmin start-domain --verbose domain1

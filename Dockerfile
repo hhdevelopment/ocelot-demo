@@ -11,13 +11,11 @@ RUN apt-get update && apt-get install -y curl unzip zip inotify-tools && rm -rf 
   && curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip \
   && unzip /tmp/glassfish-4.1.zip -d /usr/local \
   && rm -f /tmp/glassfish-4.1.zip \
-  && asadmin start-domain domain1 \
-  && asadmin deploy /tmp/ocelot-test.war \
-  && asadmin stop-domain domain1
-  
+  && mv /tmp/ocelot-test.war $GLASSFISH_HOME/glassfish/domains/domain1/autodeploy 
+
 EXPOSE 8080 4848 8181
 
-WORKDIR /usr/local/glassfish4
+WORKDIR $GLASSFISH_HOME
 
 # verbose mode for foreground mode
 CMD asadmin start-domain --verbose domain1

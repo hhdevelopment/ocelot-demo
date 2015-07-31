@@ -5,6 +5,7 @@ MAINTAINER Francois Achache <francois.achache@gmail.com>
 ENV GLASSFISH_HOME /usr/local/glassfish4
 ENV PATH $PATH:$GLASSFISH_HOME/bin
 
+
 RUN apt-get update && apt-get install -y curl unzip zip inotify-tools && rm -rf /var/lib/apt/lists/* \
   && curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip \
   && unzip /tmp/glassfish-4.1.zip -d /usr/local \

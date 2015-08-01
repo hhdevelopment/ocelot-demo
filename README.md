@@ -19,14 +19,11 @@ docker run -d -p 82:8080 hhfrancois/ocelot-demo:$VERSION
 You can test with different containers
 Download it and launch it or test directly on my containers
 
-### In glassfish 4.1 :
-[Demo](http://demo.ocelotds.org/ocelot-test/)
+### In glassfish 4.1 : [Demo](http://demo.ocelotds.org/ocelot-test/)
 
-### In wildfly 9 :
-[Demo](http://demo.ocelotds.org:81/ocelot-test/)
+### In wildfly 9 : [Demo](http://demo.ocelotds.org:81/ocelot-test/)
 
-### In tomcat  8 :
-[Demo](http://demo.ocelotds.org:82/ocelot-test/)
+### In tomcat  8 : [Demo](http://demo.ocelotds.org:82/ocelot-test/)
 
 
 

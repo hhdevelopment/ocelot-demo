@@ -1,6 +1,6 @@
 FROM java:openjdk-8-jdk
 
-MAINTAINER Francois Achache <francois.achache@gmail.com>
+MAINTAINER Francois Achache <francois.achache@gmail.com> 
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV PATH $PATH:$JAVA_HOME/bin

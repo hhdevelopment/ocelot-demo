@@ -20,13 +20,13 @@ You can test with different containers
 Download it and launch it or test directly on my containers
 
 ## In glassfish 4.1 :
-[Demo](http://demo.ocelotdes.org/ocelot-test/)
+[Demo](http://demo.ocelotds.org/ocelot-test/)
 
 ## In wildfly 9 :
-[Demo](http://demo.hhdev.fr:81/ocelot-test/)
+[Demo](http://demo.ocelotds.org:81/ocelot-test/)
 
 ## In tomcat  8 :
-[Demo](http://demo.hhdev.fr:82/ocelot-test/)
+[Demo](http://demo.ocelotds.org:82/ocelot-test/)
 
 
 

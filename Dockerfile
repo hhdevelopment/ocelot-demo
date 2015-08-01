@@ -13,7 +13,7 @@ RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binar
   && curl --silent --location --retry 3 https://github.com/hhdevelopment/ocelot/archive/master.tar.gz | tar xz -C /tmp \
   && cd /tmp/ocelot-master && mvn install -Dgpg.skip=true -DskipTests=true \
   && curl --silent --location --retry 3 https://github.com/hhdevelopment/ocelot-demo/archive/master.tar.gz | tar xz -C /tmp \
-  && cd /tmp/ocelot-demo-master && mvn package && cp /tmp/ocelot-demo-master/target/ocelot*.war /tmp/ocelot-test.war \
+  && cd /tmp/ocelot-demo-master && mvn package -f tomcat.xml && cp /tmp/ocelot-demo-master/target/ocelot*.war /tmp/ocelot-test.war \
   && rm -rf /tmp/ocelot-master && rm -rf /tmp/ocelot-demo-master && rm -f /usr/bin/mvn && rm -rf /usr/share/maven && rm -rf ~/.m2
 
 

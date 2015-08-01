@@ -21,10 +21,8 @@ ENV TOMCAT_HOME /usr/local/apache-tomcat-$TOMCAT_RELEASE
 ENV PATH $PATH:$TOMCAT_HOME/bin
 
 # Add the Tomcat distribution to /usr/local
-RUN echo http://www.webhostingjams.com/mirror/apache/tomcat/tomcat-$TOMCAT_VERSION/v$TOMCAT_RELEASE/bin/apache-tomcat-$TOMCAT_RELEASE.tar.gz \
-    && curl -O http://www.webhostingjams.com/mirror/apache/tomcat/tomcat-$TOMCAT_VERSION/v$TOMCAT_RELEASE/bin/apache-tomcat-$TOMCAT_RELEASE.tar.gz \
+RUN curl -O http://www.webhostingreviewjam.com/mirror/apache/tomcat/tomcat-$TOMCAT_VERSION/v$TOMCAT_RELEASE/bin/apache-tomcat-$TOMCAT_RELEASE.tar.gz \
     && tar xf apache-tomcat-$TOMCAT_RELEASE.tar.gz -C /usr/local \
-    && ls /usr/local/ \
     && mv /tmp/ocelot-test.war $TOMCAT_HOME/webapps \
     && rm apache-tomcat-$TOMCAT_RELEASE.tar.gz
 

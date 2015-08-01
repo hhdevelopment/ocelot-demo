@@ -10,7 +10,7 @@ These are docker images for testing ocelotds framework
 
 Glassfish : [hhfrancois/ocelot-demo:glassfish](https://github.com/hhdevelopment/ocelot-demo/blob/glassfish/Dockerfile)    
 Wildfly : [hhfrancois/ocelot-demo:wildfly](https://github.com/hhdevelopment/ocelot-demo/blob/wildfly/Dockerfile)    
-Tomee : [hhfrancois/ocelot-demo:tomee](https://github.com/hhdevelopment/ocelot-demo/blob/tomee/Dockerfile)    
+Tomee : [hhfrancois/ocelot-demo:tomcat](https://github.com/hhdevelopment/ocelot-demo/blob/tomcat/Dockerfile)    
 
 ```
 docker run -d -p 82:8080 hhfrancois/ocelot-demo:$VERSION
@@ -25,6 +25,8 @@ Download it and launch it or test directly on my containers
 ## In wildfly 9 :
 [Demo](http://demo.hhdev.fr:81/ocelot-test/)
 
+## In tomcat  8 :
+[Demo](http://demo.hhdev.fr:82/ocelot-test/)
 
 
 

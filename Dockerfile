@@ -1,20 +1,21 @@
 FROM hhfrancois/ocelot-demo:base
 
-MAINTAINER Francois Achache <francois.achache@gmail.com>
+# Set the WILDFLY_VERSION env variable
+ENV TOMEE_VERSION 1.7.2
+ENV TOMEE_HOME /usr/local/apache-tomee-$TOMEE_VERSION
+ENV PATH $PATH:$TOMEE_HOME/bin
 
-ENV GLASSFISH_HOME /usr/local/glassfish4
-ENV PATH $PATH:$GLASSFISH_HOME/bin
 
+# Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
+# Make sure the distribution is available from a well-known place
+RUN curl -O http://www.apache.org/dyn/closer.cgi/tomee/tomee-$TOMEE_VERSION/apache-tomee-$TOMEE_VERSION-webprofile.tar.gz \
+    && tar xf apache-tomee-$TOMEE_VERSION-webprofile.tar.gz -C /usr/local \
+    && mv /tmp/ocelot-test.war $TOMEE_HOME/webapps \
+    && rm apache-tomee-$TOMEE_VERSION-webprofile.tar.gz
 
-RUN apt-get update && apt-get install -y curl unzip zip inotify-tools && rm -rf /var/lib/apt/lists/* \
-  && curl -L -o /tmp/glassfish-4.1.zip http://download.java.net/glassfish/4.1/release/glassfish-4.1.zip \
-  && unzip /tmp/glassfish-4.1.zip -d /usr/local \
-  && rm -f /tmp/glassfish-4.1.zip \
-  && mv /tmp/ocelot-test.war $GLASSFISH_HOME/glassfish/domains/domain1/autodeploy 
+# Expose the ports we're interested in
+EXPOSE 8080
 
-EXPOSE 8080 4848 8181
+WORKDIR $TOMEE_HOME
 
-WORKDIR $GLASSFISH_HOME
-
-# verbose mode for foreground mode
-CMD asadmin start-domain --verbose domain1
+CMD ['startup.sh']

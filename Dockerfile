@@ -18,4 +18,4 @@ EXPOSE 8080
 
 WORKDIR $TOMEE_HOME
 
-CMD ['startup.sh']
+CMD ["catalina.sh", "run"]

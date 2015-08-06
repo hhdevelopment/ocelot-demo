@@ -1,5 +1,5 @@
-#Ocelot.DS  
-OcelotDS : Ocelot DataServices is a framework for simplify communication between java and javascript.  
+#Ocelotds  
+Ocelotds : Ocelot DataServices is a framework for simplify communication between java and javascript.  
 
 ##ocelot-demo
 
